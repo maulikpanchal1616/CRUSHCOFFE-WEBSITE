@@ -1,0 +1,16 @@
+{
+  "name": "crush-coffee",
+  "version": "1.0.0",
+  "description": "Crush Coffee Premium 3D Standalone Experience",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "coffee",
+    "3d",
+    "experience"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}
