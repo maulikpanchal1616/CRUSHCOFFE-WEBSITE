@@ -12,5 +12,8 @@
     "experience"
   ],
   "author": "Antigravity",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.43.1"
+  }
 }

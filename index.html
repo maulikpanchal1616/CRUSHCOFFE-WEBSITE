@@ -367,13 +367,40 @@
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       z-index: 1050;
-      padding: 100px 40px;
+      padding: 80px 40px 60px;
       display: flex;
       flex-direction: column;
       gap: 30px;
       box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
       border-left: 1px solid rgba(200, 136, 42, 0.2);
       transition: var(--transition-smooth);
+    }
+
+    /* Drawer Close Button */
+    .drawer-close-btn {
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
+      background: rgba(200, 136, 42, 0.1);
+      border: 1px solid rgba(200, 136, 42, 0.3);
+      border-radius: 50%;
+      color: var(--text-light);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+    }
+    .drawer-close-btn:hover {
+      background: rgba(200, 136, 42, 0.25);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: rotate(90deg) scale(1.1);
     }
 
     .mobile-drawer.open {
@@ -1653,125 +1680,111 @@
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       OUR STORES SECTION
+       OUR STORES SECTION — MOBILE FIRST
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .stores-section {
       background-color: var(--bg-dark);
       position: relative;
       z-index: 2;
-      padding: 120px 10% 80px;
+      padding: 70px 5% 60px;
       border-bottom: 1px solid rgba(200, 136, 42, 0.1);
     }
 
     .stores-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 36px;
       opacity: 0;
       transform: translateY(30px);
       transition: var(--transition-smooth);
     }
-    .stores-header.reveal {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .stores-header.reveal { opacity: 1; transform: translateY(0); }
 
     .stores-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: 0.95rem;
       opacity: 0.7;
       max-width: 560px;
-      margin: 15px auto 0;
+      margin: 12px auto 0;
       line-height: 1.6;
     }
 
     /* City Selector */
     .city-selector {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 35px;
+      gap: 8px;
+      margin-bottom: 28px;
     }
     .city-btn {
       background: transparent;
       border: 1px solid rgba(200, 136, 42, 0.25);
       color: var(--text-light);
       font-family: var(--font-accent);
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 12px 30px;
+      padding: 9px 18px;
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 7px;
     }
-    .city-btn:hover {
-      border-color: var(--accent);
-      background: rgba(200, 136, 42, 0.05);
-    }
+    .city-btn:hover { border-color: var(--accent); background: rgba(200,136,42,0.05); }
     .city-btn.active {
       background: linear-gradient(135deg, var(--accent), #805415);
       border-color: var(--accent);
       color: var(--primary);
-      box-shadow: 0 6px 20px rgba(200, 136, 42, 0.35);
+      box-shadow: 0 4px 16px rgba(200,136,42,0.35);
     }
     .city-count {
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0,0,0,0.25);
       color: var(--text-light);
-      font-size: 0.75rem;
-      padding: 2px 8px;
+      font-size: 0.7rem;
+      padding: 2px 7px;
       border-radius: 10px;
-      font-family: var(--font-display);
     }
-    .city-btn.active .city-count {
-      background: rgba(255, 255, 255, 0.2);
-      color: var(--primary);
-      font-weight: 900;
-    }
+    .city-btn.active .city-count { background: rgba(255,255,255,0.2); color: var(--primary); }
 
-    /* Filter animations */
+    /* Filter */
     .store-tab.filtered-out,
-    .store-mini-card.filtered-out {
-      display: none !important;
-    }
+    .store-mini-card.filtered-out { display: none !important; }
 
     /* Tab Navigation */
     .store-tabs-wrapper {
       display: flex;
-      justify-content: center;
-      margin-bottom: 50px;
+      justify-content: flex-start;
+      margin-bottom: 28px;
       overflow-x: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      padding-bottom: 4px;
     }
     .store-tabs-wrapper::-webkit-scrollbar { display: none; }
-
     .store-tabs {
       display: inline-flex;
-      gap: 8px;
-      background: rgba(250, 244, 236, 0.04);
-      border: 1px solid rgba(200, 136, 42, 0.18);
+      gap: 6px;
+      background: rgba(250,244,236,0.04);
+      border: 1px solid rgba(200,136,42,0.18);
       border-radius: 50px;
-      padding: 6px;
+      padding: 5px;
       flex-shrink: 0;
     }
-
     .store-tab {
       background: transparent;
       border: none;
       color: var(--text-light);
       font-family: var(--font-accent);
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 10px 22px;
+      padding: 8px 14px;
       border-radius: 40px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
       opacity: 0.6;
       white-space: nowrap;
     }
@@ -1780,37 +1793,36 @@
       background: linear-gradient(135deg, var(--accent), #805415);
       color: var(--primary);
       opacity: 1;
-      box-shadow: 0 4px 16px rgba(200, 136, 42, 0.4);
+      box-shadow: 0 4px 14px rgba(200,136,42,0.4);
     }
 
-    /* Store Panels */
+    /* Store Panels — stacked on mobile */
     .store-panels {
       position: relative;
-      min-height: 480px;
-      margin-bottom: 80px;
+      min-height: 300px;
+      margin-bottom: 50px;
     }
-
     .store-panel {
       display: none;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr;
       gap: 0;
-      border: 1px solid rgba(200, 136, 42, 0.2);
-      border-radius: 28px;
+      border: 1px solid rgba(200,136,42,0.2);
+      border-radius: 20px;
       overflow: hidden;
-      background: rgba(20, 14, 8, 0.7);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-      animation: panelFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(20,14,8,0.7);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+      animation: panelFadeIn 0.4s cubic-bezier(0.16,1,0.3,1);
     }
     .store-panel.active { display: grid; }
 
     @keyframes panelFadeIn {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .store-map-col {
       position: relative;
-      min-height: 480px;
+      min-height: 240px;
     }
     .store-map-embed {
       position: absolute;
@@ -1826,127 +1838,118 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(13, 10, 7, 0.95);
+      background: rgba(13,10,7,0.95);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      color: rgba(250, 244, 236, 0.7);
+      gap: 14px;
+      color: rgba(250,244,236,0.7);
       font-family: var(--font-accent);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       z-index: 1;
       transition: opacity 0.5s ease-out;
     }
     .map-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(200, 136, 42, 0.1);
+      width: 36px; height: 36px;
+      border: 3px solid rgba(200,136,42,0.1);
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: mapSpin 1s infinite linear;
     }
-    @keyframes mapSpin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes mapSpin { to { transform: rotate(360deg); } }
 
     .store-info-col {
-      padding: 50px 45px;
+      padding: 28px 22px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 0;
     }
-
     .store-badge {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
     .store-number {
       font-family: var(--font-display);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--accent);
-      line-height: 1;
       opacity: 0.6;
+      line-height: 1;
     }
     .store-tag {
       font-family: var(--font-accent);
-      font-size: 0.7rem;
-      letter-spacing: 2.5px;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(200, 136, 42, 0.12);
-      border: 1px solid rgba(200, 136, 42, 0.25);
-      padding: 4px 12px;
+      background: rgba(200,136,42,0.12);
+      border: 1px solid rgba(200,136,42,0.25);
+      padding: 3px 10px;
       border-radius: 20px;
     }
-
     .store-name {
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.1rem, 4vw, 1.8rem);
       font-weight: 800;
       color: var(--text-light);
-      margin-bottom: 28px;
+      margin-bottom: 18px;
       line-height: 1.2;
     }
-
     .store-detail-row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       align-items: flex-start;
-      margin-bottom: 16px;
-      font-size: 0.92rem;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
       line-height: 1.6;
       opacity: 0.85;
     }
     .store-detail-row svg {
-      width: 18px;
-      height: 18px;
+      width: 16px; height: 16px;
       color: var(--accent);
       flex-shrink: 0;
       margin-top: 3px;
     }
-    .store-detail-row strong {
-      color: var(--text-light);
-    }
-    .store-link {
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
+    .store-detail-row strong { color: var(--text-light); }
+    .store-link { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
     .store-link:hover { opacity: 0.7; text-decoration: underline; }
 
     .store-actions {
       display: flex;
-      gap: 14px;
-      align-items: center;
-      margin-top: 30px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 22px;
     }
     .store-dir-btn {
-      padding: 12px 28px !important;
-      font-size: 0.8rem !important;
+      padding: 13px 20px !important;
+      font-size: 0.78rem !important;
+      text-align: center;
+      width: 100%;
     }
     .store-call-btn {
       color: var(--text-light);
       text-decoration: none;
       font-family: var(--font-accent);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      opacity: 0.6;
+      text-align: center;
+      padding: 12px;
+      background: rgba(200,136,42,0.08);
+      border: 1px solid rgba(200,136,42,0.2);
+      border-radius: 50px;
       transition: var(--transition-fast);
-      border-bottom: 1px solid transparent;
     }
     .store-call-btn:hover {
-      opacity: 1;
+      background: rgba(200,136,42,0.18);
       color: var(--accent);
-      border-bottom-color: var(--accent);
+      border-color: var(--accent);
     }
 
     /* All Stores Mini Grid */
@@ -1955,82 +1958,109 @@
       transform: translateY(30px);
       transition: var(--transition-smooth);
     }
-    .all-stores-grid.reveal {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .all-stores-label {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+    .all-stores-grid.reveal { opacity: 1; transform: translateY(0); }
+    .all-stores-label { text-align: center; margin-bottom: 24px; }
 
     .stores-mini-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
-
     .store-mini-card {
-      background: rgba(250, 244, 236, 0.03);
-      border: 1px solid rgba(200, 136, 42, 0.15);
-      border-radius: 18px;
-      padding: 24px 18px;
+      background: rgba(250,244,236,0.03);
+      border: 1px solid rgba(200,136,42,0.15);
+      border-radius: 16px;
+      padding: 18px 16px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      text-align: center;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      text-align: left;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0 14px;
+      align-items: center;
     }
     .store-mini-card:hover {
-      background: rgba(200, 136, 42, 0.08);
-      border-color: rgba(200, 136, 42, 0.45);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      background: rgba(200,136,42,0.08);
+      border-color: rgba(200,136,42,0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.4);
     }
     .store-mini-num {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 900;
       color: var(--accent);
       opacity: 0.5;
       line-height: 1;
-      margin-bottom: 8px;
+      grid-row: 1 / 4;
     }
     .store-mini-name {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--text-light);
-      margin-bottom: 6px;
     }
     .store-mini-addr {
-      font-size: 0.78rem;
-      opacity: 0.55;
-      line-height: 1.4;
-      margin-bottom: 8px;
+      font-size: 0.75rem;
+      opacity: 0.5;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .store-mini-hrs {
       font-family: var(--font-accent);
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 1px;
       color: var(--accent);
       text-transform: uppercase;
     }
 
-    @media (max-width: 1024px) {
-      .stores-mini-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-      .stores-section { padding: 80px 6% 60px; }
-      .store-panel { grid-template-columns: 1fr; }
-      .store-map-col { min-height: 300px; position: relative; }
-      .store-info-col { padding: 35px 28px; }
+    /* ─── Tablet: 600px ─── */
+    @media (min-width: 600px) {
+      .stores-section { padding: 80px 7% 65px; }
       .stores-mini-grid { grid-template-columns: repeat(2, 1fr); }
-      .store-tabs { padding: 4px; }
-      .store-tab { padding: 8px 14px; font-size: 0.72rem; }
+      .store-mini-card { grid-template-columns: auto 1fr; }
+      .store-map-col { min-height: 300px; }
+      .city-btn { font-size: 0.8rem; padding: 10px 22px; }
     }
 
-    @media (max-width: 480px) {
-      .stores-mini-grid { grid-template-columns: 1fr 1fr; }
+    /* ─── Large Tablet: 768px ─── */
+    @media (min-width: 768px) {
+      .stores-section { padding: 90px 8% 70px; }
+      .store-tabs-wrapper { justify-content: center; }
+      .stores-mini-grid { grid-template-columns: repeat(3, 1fr); }
+      .store-panel { grid-template-columns: 1fr 1fr; }
+      .store-map-col { min-height: 400px; }
+      .store-info-col { padding: 38px 32px; }
+      .store-actions { flex-direction: row; flex-wrap: wrap; }
+      .store-dir-btn { width: auto; }
+      .store-call-btn {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid transparent;
+        border-radius: 0;
+        padding: 0;
+        text-align: left;
+        opacity: 0.6;
+      }
+      .store-call-btn:hover { background: transparent; border-bottom-color: var(--accent); }
     }
+
+    /* ─── Desktop: 1024px ─── */
+    @media (min-width: 1024px) {
+      .stores-section { padding: 120px 10% 80px; }
+      .store-panel { grid-template-columns: 1.1fr 0.9fr; }
+      .store-map-col { min-height: 480px; }
+      .store-info-col { padding: 50px 45px; }
+      .stores-mini-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      .store-mini-card { grid-template-columns: 1fr; text-align: center; }
+      .store-mini-num { grid-row: auto; }
+      .store-tab { font-size: 0.8rem; padding: 10px 22px; }
+      .city-btn { font-size: 0.9rem; padding: 12px 30px; }
+      .stores-subtitle { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+    }
+
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        FOOTER
@@ -2703,6 +2733,8 @@
 
   <!-- Mobile Nav Drawer -->
   <div class="mobile-drawer" id="mobile-drawer">
+    <!-- Close Button -->
+    <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Navigation Menu">&#x2715;</button>
     <a href="#home" class="drawer-link">Home</a>
     <a href="#about" class="drawer-link">About</a>
     <a href="#menu" class="drawer-link">Our Menu</a>
@@ -3168,40 +3200,43 @@
     <div class="stores-header scroll-reveal">
       <span class="section-label">Find Us</span>
       <h3 class="about-title gold-gradient-text">Our Stores</h3>
-      <p class="stores-subtitle">11 handcrafted café experiences across India. Select your city to explore.</p>
+      <p class="stores-subtitle">13 handcrafted café experiences across India. Select your city to explore.</p>
     </div>
 
     <!-- City Selector -->
     <div class="city-selector">
-      <button class="city-btn active" data-city="ahmedabad">Ahmedabad <span class="city-count">9</span></button>
-      <button class="city-btn" data-city="indore">Indore <span class="city-count">2</span></button>
+      <button class="city-btn active" data-city="ahmedabad">Ahmedabad <span class="city-count">8</span></button>
+      <button class="city-btn " data-city="anand">Anand <span class="city-count">1</span></button>
+      <button class="city-btn " data-city="gandhinagar">Gandhinagar <span class="city-count">1</span></button>
+      <button class="city-btn " data-city="rajkot">Rajkot <span class="city-count">1</span></button>
+      <button class="city-btn " data-city="surat">Surat <span class="city-count">1</span></button>
+      <button class="city-btn " data-city="vadodara">Vadodara <span class="city-count">1</span></button>
     </div>
 
     <!-- Store Tabs -->
     <div class="store-tabs-wrapper">
       <div class="store-tabs" id="store-tabs">
-        <!-- Ahmedabad Stores -->
-        <button class="store-tab active" data-city="ahmedabad" data-store="0">Bopal</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="1">Ambli</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="2">SG Highway</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="3">Gurukul</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="4">Science City</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="5">Vastrapur</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="6">Thaltej</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="7">Nikol</button>
-        <button class="store-tab" data-city="ahmedabad" data-store="8">Motera</button>
-
-        <!-- Indore Stores -->
-        <button class="store-tab filtered-out" data-city="indore" data-store="9">South Tukoganj</button>
-        <button class="store-tab filtered-out" data-city="indore" data-store="10">New Palasia</button>
+        <button class="store-tab active" data-city="ahmedabad" data-store="0">SBR</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="1">RAJPATH</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="2">WIDE ANGLE</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="3">SCIENCE CITY</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="4">VASTRAPUR</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="5">TAPOVAN</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="6">NIKOL</button>
+        <button class="store-tab " data-city="ahmedabad" data-store="7">CG Road</button>
+        <button class="store-tab filtered-out" data-city="gandhinagar" data-store="8">GANDHINAGAR</button>
+        <button class="store-tab filtered-out" data-city="vadodara" data-store="9">VADODARA CITY</button>
+        <button class="store-tab filtered-out" data-city="anand" data-store="10">ANAND CITY</button>
+        <button class="store-tab filtered-out" data-city="rajkot" data-store="11">RAJKOT CITY</button>
+        <button class="store-tab filtered-out" data-city="surat" data-store="12">Vesu, Surat</button>
       </div>
     </div>
 
     <!-- Store Panels -->
     <div class="store-panels" id="store-panels">
 
-      <!-- Store 1: Bopal -->
-      <div class="store-panel active" data-city="ahmedabad" data-store="0" data-map-q="Crush Coffee Bopal Ahmedabad">
+      <!-- Store 1: SBR -->
+      <div class="store-panel active" data-city="ahmedabad" data-store="0" data-map-q="Bogie Chef's Food Court, Besides Ornet Park 3, Sindhu Bhavan Marg, Ahmedabad, Gujarat 380059">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3211,34 +3246,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">01</span>
-            <span class="store-tag">Flagship Outlet</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Bopal</h4>
+          <h4 class="store-name">CRUSH COFFEE SBR</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Crush House, Villa 192, Nilkanthvilla Bungalows,<br>Shilaj Canal Road, near DPS School Road,<br><strong>Bopal, Ahmedabad – 380058</strong></span>
+            <span>Bogie Chef's Food Court, Besides Ornet Park 3, Sindhu Bhavan Marg, Ahmedabad, Gujarat 380059</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>8:00 AM – 10:00 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
-          <div class="store-detail-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span><a href="mailto:thecrushcafe07@gmail.com" class="store-link">thecrushcafe07@gmail.com</a></span>
-          </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Villa+192+Nilkanthvilla+Bungalows+Shilaj+Canal+Road+Bopal+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Bogie%20Chef's%20Food%20Court%2C%20Besides%20Ornet%20Park%203%2C%20Sindhu%20Bhavan%20Marg%2C%20Ahmedabad%2C%20Gujarat%20380059" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 2: Ambli -->
-      <div class="store-panel" data-city="ahmedabad" data-store="1" data-map-q="Crush Coffee Ambli Ahmedabad">
+      <!-- Store 2: RAJPATH -->
+      <div class="store-panel " data-city="ahmedabad" data-store="1" data-map-q="Rajpath Rangoli Rd, near Kalibari Mandir, opposite Umiya Traders, PRL Colony, Ambli, Ahmedabad, Gujarat 380058">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3248,30 +3279,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">02</span>
-            <span class="store-tag">Ambli Road</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Ambli</h4>
+          <h4 class="store-name">CRUSH COFFEE RAJPATH</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Rajpath Rangoli Road, near Kalibari Mandir,<br>Opposite Umiya Traders, PRL Colony,<br><strong>Ambli, Ahmedabad – 380058</strong></span>
+            <span>Rajpath Rangoli Rd, near Kalibari Mandir, opposite Umiya Traders, PRL Colony, Ambli, Ahmedabad, Gujarat 380058</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>8:00 AM – 10:00 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Rajpath+Rangoli+Road+Ambli+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Rajpath%20Rangoli%20Rd%2C%20near%20Kalibari%20Mandir%2C%20opposite%20Umiya%20Traders%2C%20PRL%20Colony%2C%20Ambli%2C%20Ahmedabad%2C%20Gujarat%20380058" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 3: SG Highway -->
-      <div class="store-panel" data-city="ahmedabad" data-store="2" data-map-q="Crush Coffee Wide Angle SG Highway Ahmedabad">
+      <!-- Store 3: WIDE ANGLE -->
+      <div class="store-panel " data-city="ahmedabad" data-store="2" data-map-q="Ground Floor Wide Angle Multiplex, Sarkhej - Gandhinagar Hwy, Ahmedabad, Gujarat 380015">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3281,12 +3312,12 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">03</span>
-            <span class="store-tag">SG Highway</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — SG Highway</h4>
+          <h4 class="store-name">CRUSH COFFEE WIDE ANGLE</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Ground Floor, Wide Angle Multiplex,<br>Sarkhej – Gandhinagar Highway, Ramdev Nagar,<br><strong>Ahmedabad – 380015</strong></span>
+            <span>Ground Floor Wide Angle Multiplex, Sarkhej - Gandhinagar Hwy, Ahmedabad, Gujarat 380015</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -3297,14 +3328,14 @@
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Wide+Angle+Multiplex+SG+Highway+Ramdev+Nagar+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Ground%20Floor%20Wide%20Angle%20Multiplex%2C%20Sarkhej%20-%20Gandhinagar%20Hwy%2C%20Ahmedabad%2C%20Gujarat%20380015" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 4: Gurukul -->
-      <div class="store-panel" data-city="ahmedabad" data-store="3" data-map-q="Crush Coffee Gurukul Ahmedabad">
+      <!-- Store 4: SCIENCE CITY -->
+      <div class="store-panel " data-city="ahmedabad" data-store="3" data-map-q="G5, OBELISK, Science City Rd, Sola, Ahmedabad, Gujarat 380060">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3314,30 +3345,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">04</span>
-            <span class="store-tag">Gurukul</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Gurukul</h4>
+          <h4 class="store-name">CRUSH COFFEE SCIENCE CITY</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>8, Ground Floor, Galaxy Bazar,<br>Opposite Sunrise Park,<br><strong>Gurukul, Ahmedabad</strong></span>
+            <span>G5, OBELISK, Science City Rd, Sola, Ahmedabad, Gujarat 380060</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>8:00 AM – 10:00 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Galaxy+Bazar+Gurukul+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=G5%2C%20OBELISK%2C%20Science%20City%20Rd%2C%20Sola%2C%20Ahmedabad%2C%20Gujarat%20380060" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 5: Science City Road -->
-      <div class="store-panel" data-city="ahmedabad" data-store="4" data-map-q="Crush Coffee Science City Road Ahmedabad">
+      <!-- Store 5: VASTRAPUR -->
+      <div class="store-panel " data-city="ahmedabad" data-store="4" data-map-q="Shop no 8, Vastrapur, Ahmedabad, Gujarat 380052">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3347,30 +3378,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">05</span>
-            <span class="store-tag">Science City</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Science City Road</h4>
+          <h4 class="store-name">CRUSH COFFEE VASTRAPUR</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>G5, Obelisk Complex,<br>Opposite Shell Petrol Pump,<br><strong>Science City Road, Ahmedabad</strong></span>
+            <span>Shop no 8, Vastrapur, Ahmedabad, Gujarat 380052</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>9:00 AM – 10:30 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Obelisk+Science+City+Road+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Shop%20no%208%2C%20Vastrapur%2C%20Ahmedabad%2C%20Gujarat%20380052" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 6: Vastrapur -->
-      <div class="store-panel" data-city="ahmedabad" data-store="5" data-map-q="Crush Coffee Vastrapur Ahmedabad">
+      <!-- Store 6: TAPOVAN -->
+      <div class="store-panel " data-city="ahmedabad" data-store="5" data-map-q="4JC6 M38, Crush Coffee - Near Tapovan circle, on Service Rd, next to True Value Maruti, Chandkheda, Ahmedabad, Gujarat 382421">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3380,30 +3411,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">06</span>
-            <span class="store-tag">Vastrapur</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Vastrapur</h4>
+          <h4 class="store-name">CRUSH COFFEE TAPOVAN</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Shop No. 8, Near Himalaya Mall Commercial Building,<br>Near Yes Bank, Vastrapur,<br><strong>Ahmedabad, Gujarat – 380015</strong></span>
+            <span>Near Tapovan circle, on Service Rd, next to True Value Maruti, Chandkheda, Ahmedabad, Gujarat 382421</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>9:00 AM – 10:30 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Himalaya+Mall+Vastrapur+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=4JC6%20M38%2C%20Crush%20Coffee%20-%20Near%20Tapovan%20circle%2C%20on%20Service%20Rd%2C%20next%20to%20True%20Value%20Maruti%2C%20Chandkheda%2C%20Ahmedabad%2C%20Gujarat%20382421" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 7: Thaltej -->
-      <div class="store-panel" data-city="ahmedabad" data-store="6" data-map-q="Crush Coffee Sindhu Bhavan Road Ahmedabad">
+      <!-- Store 7: NIKOL -->
+      <div class="store-panel " data-city="ahmedabad" data-store="6" data-map-q="Kasturi Pride, Sardar Patel Ring Rd, opp. Torrent Power Stataion, behind Kesar Harmony, Nikol, Ahmedabad, Gujarat 380049">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3413,12 +3444,12 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">07</span>
-            <span class="store-tag">Sindhu Bhavan</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Thaltej</h4>
+          <h4 class="store-name">CRUSH COFFEE NIKOL</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>First Floor, Funblast, Sindhu Bhavan Marg,<br>Opposite B-Star Gym, PRL Colony, Thaltej,<br><strong>Ahmedabad, Gujarat – 380059</strong></span>
+            <span>Kasturi Pride, Sardar Patel Ring Rd, opp. Torrent Power Stataion, behind Kesar Harmony, Nikol, Ahmedabad, Gujarat 380049</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -3429,14 +3460,14 @@
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Sindhu+Bhavan+Road+Thaltej+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Kasturi%20Pride%2C%20Sardar%20Patel%20Ring%20Rd%2C%20opp.%20Torrent%20Power%20Stataion%2C%20behind%20Kesar%20Harmony%2C%20Nikol%2C%20Ahmedabad%2C%20Gujarat%20380049" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 8: Nikol -->
-      <div class="store-panel" data-city="ahmedabad" data-store="7" data-map-q="Crush Coffee Nikol Ahmedabad">
+      <!-- Store 8: CG Road -->
+      <div class="store-panel " data-city="ahmedabad" data-store="7" data-map-q="Crush Coffee CG Road Ahmedabad">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3446,12 +3477,12 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">08</span>
-            <span class="store-tag">Nikol Circle</span>
+            <span class="store-tag">Ahmedabad</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Nikol</h4>
+          <h4 class="store-name">CRUSH COFFEE CG Road</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Kasturi Pride, Sardar Patel Ring Road,<br>Opposite Torrent Power Station, Nikol,<br><strong>Ahmedabad, Gujarat – 382350</strong></span>
+            <span>CG Road, Ahmedabad, Gujarat</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -3462,14 +3493,14 @@
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Kasturi+Pride+Nikol+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Crush%20Coffee%20CG%20Road%20Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 9: Motera -->
-      <div class="store-panel" data-city="ahmedabad" data-store="8" data-map-q="Crush Coffee Tapovan Circle Ahmedabad">
+      <!-- Store 9: GANDHINAGAR -->
+      <div class="store-panel " data-city="gandhinagar" data-store="8" data-map-q="Crush Coffee Gandhinagar">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3479,30 +3510,30 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">09</span>
-            <span class="store-tag">Tapovan</span>
+            <span class="store-tag">Gandhinagar</span>
           </div>
-          <h4 class="store-name">Crush Coffee — Motera</h4>
+          <h4 class="store-name">CRUSH COFFEE GANDHINAGAR</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Maple 99, Sardar Patel Ring Road,<br>Near Tapovan Circle, Chandkheda,<br><strong>Ahmedabad, Gujarat – 382424</strong></span>
+            <span>Gandhinagar, Gujarat</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: <strong>8:00 AM – 11:00 PM</strong></span>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Maple+99+Sardar+Patel+Ring+Road+Tapovan+Ahmedabad" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Crush%20Coffee%20Gandhinagar" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 10: South Tukoganj, Indore -->
-      <div class="store-panel" data-city="indore" data-store="9" data-map-q="Crush Coffee South Tukoganj Indore">
+      <!-- Store 10: VADODARA CITY -->
+      <div class="store-panel " data-city="vadodara" data-store="9" data-map-q="Crush Coffee Vadodara">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3512,12 +3543,12 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">10</span>
-            <span class="store-tag">Indore City</span>
+            <span class="store-tag">Vadodara</span>
           </div>
-          <h4 class="store-name">Crush Coffee — South Tukoganj</h4>
+          <h4 class="store-name">CRUSH COFFEE VADODARA CITY</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>3 Tulsi Tower, 22/3 South Tukoganj Street 1,<br>AB Road, Near Geeta Bhavan Square,<br><strong>Indore, Madhya Pradesh – 452001</strong></span>
+            <span>Vadodara, Gujarat</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -3528,14 +3559,14 @@
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=Tulsi+Tower+South+Tukoganj+Indore" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Crush%20Coffee%20Vadodara" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
-      <!-- Store 11: New Palasia -->
-      <div class="store-panel" data-city="indore" data-store="10" data-map-q="Crush Coffee DM Tower Indore">
+      <!-- Store 11: ANAND CITY -->
+      <div class="store-panel " data-city="anand" data-store="10" data-map-q="Crush Coffee, opp. Anand - Sojitra Road, Sarvodaya Society, Vithal Udyognagar, GIDC, Anand, Gujarat 388120">
         <div class="store-map-col">
           <div class="map-placeholder">
             <div class="map-spinner"></div>
@@ -3545,12 +3576,12 @@
         <div class="store-info-col">
           <div class="store-badge">
             <span class="store-number">11</span>
-            <span class="store-tag">Janjeerwala</span>
+            <span class="store-tag">Anand</span>
           </div>
-          <h4 class="store-name">Crush Coffee — New Palasia</h4>
+          <h4 class="store-name">CRUSH COFFEE ANAND CITY</h4>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>21/1, Shop 8, DM Tower, Janjeerwala Square,<br>Race Course Road, New Palasia,<br><strong>Indore, Madhya Pradesh – 452001</strong></span>
+            <span>opp. Anand - Sojitra Road, Sarvodaya Society, Vithal Udyognagar, GIDC, Anand, Gujarat 388120</span>
           </div>
           <div class="store-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -3561,12 +3592,77 @@
             <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
           </div>
           <div class="store-actions">
-            <a href="https://maps.google.com/?q=DM+Tower+New+Palasia+Indore" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=Crush%20Coffee%2C%20opp.%20Anand%20-%20Sojitra%20Road%2C%20Sarvodaya%20Society%2C%20Vithal%20Udyognagar%2C%20GIDC%2C%20Anand%2C%20Gujarat%20388120" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
             <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
           </div>
         </div>
       </div>
 
+      <!-- Store 12: RAJKOT CITY -->
+      <div class="store-panel " data-city="rajkot" data-store="11" data-map-q="Crush Coffee Rajkot">
+        <div class="store-map-col">
+          <div class="map-placeholder">
+            <div class="map-spinner"></div>
+            <span>Calibrating Map Coordinates...</span>
+          </div>
+        </div>
+        <div class="store-info-col">
+          <div class="store-badge">
+            <span class="store-number">12</span>
+            <span class="store-tag">Rajkot</span>
+          </div>
+          <h4 class="store-name">CRUSH COFFEE RAJKOT CITY</h4>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rajkot, Gujarat</span>
+          </div>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
+          </div>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.google.com/?q=Crush%20Coffee%20Rajkot" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store 13: Vesu, Surat -->
+      <div class="store-panel " data-city="surat" data-store="12" data-map-q="Crush Coffee – Vesu, Surat, G 4, DMD Pacific, Vesu Canal Rd, opp. L P Savani School, Bharthana, Surat, Gujarat 395007">
+        <div class="store-map-col">
+          <div class="map-placeholder">
+            <div class="map-spinner"></div>
+            <span>Calibrating Map Coordinates...</span>
+          </div>
+        </div>
+        <div class="store-info-col">
+          <div class="store-badge">
+            <span class="store-number">13</span>
+            <span class="store-tag">Surat</span>
+          </div>
+          <h4 class="store-name">CRUSH COFFEE Vesu, Surat</h4>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>G 4, DMD Pacific, Vesu Canal Rd, opp. L P Savani School, Bharthana, Surat, Gujarat 395007</span>
+          </div>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Sun: <strong>9:00 AM – 11:00 PM</strong></span>
+          </div>
+          <div class="store-detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><a href="tel:+918320612851" class="store-link">+91 83206 12851</a></span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.google.com/?q=Crush%20Coffee%20%E2%80%93%20Vesu%2C%20Surat%2C%20G%204%2C%20DMD%20Pacific%2C%20Vesu%20Canal%20Rd%2C%20opp.%20L%20P%20Savani%20School%2C%20Bharthana%2C%20Surat%2C%20Gujarat%20395007" target="_blank" class="cta-btn btn-ripple store-dir-btn">Get Directions</a>
+            <a href="tel:+918320612851" class="store-call-btn">Call Store</a>
+          </div>
+        </div>
+      </div>
     </div><!-- /store-panels -->
 
     <!-- All Stores Mini Grid (overview) -->
@@ -3575,77 +3671,88 @@
         <span class="section-label">All Active City Locations</span>
       </div>
       <div class="stores-mini-grid" id="stores-mini-grid">
-        <!-- Ahmedabad Stores -->
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(0)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(0)">
           <div class="store-mini-num">01</div>
-          <div class="store-mini-name">Bopal</div>
-          <div class="store-mini-addr">Villa 192, Shilaj Canal Rd</div>
-          <div class="store-mini-hrs">8 AM – 10 PM</div>
+          <div class="store-mini-name">SBR</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Bogie Chef's Food Court, Besides Ornet Park 3, Sindhu Bhavan Marg, Ahmedabad, Gujarat 380059">Bogie Chef's Food Court, Besides Ornet Park 3, Sindhu Bhavan Marg, Ahmedabad, Gujarat 380059</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(1)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(1)">
           <div class="store-mini-num">02</div>
-          <div class="store-mini-name">Ambli</div>
-          <div class="store-mini-addr">Rajpath Rangoli Rd, PRL Colony</div>
-          <div class="store-mini-hrs">8 AM – 10 PM</div>
+          <div class="store-mini-name">RAJPATH</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Rajpath Rangoli Rd, near Kalibari Mandir, opposite Umiya Traders, PRL Colony, Ambli, Ahmedabad, Gujarat 380058">Rajpath Rangoli Rd, near Kalibari Mandir, opposite Umiya Traders, PRL Colony, Ambli, Ahmedabad, Gujarat 380058</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(2)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(2)">
           <div class="store-mini-num">03</div>
-          <div class="store-mini-name">SG Highway</div>
-          <div class="store-mini-addr">Wide Angle Multiplex</div>
+          <div class="store-mini-name">WIDE ANGLE</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Ground Floor Wide Angle Multiplex, Sarkhej - Gandhinagar Hwy, Ahmedabad, Gujarat 380015">Ground Floor Wide Angle Multiplex, Sarkhej - Gandhinagar Hwy, Ahmedabad, Gujarat 380015</div>
           <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(3)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(3)">
           <div class="store-mini-num">04</div>
-          <div class="store-mini-name">Gurukul</div>
-          <div class="store-mini-addr">Galaxy Bazar, Gurukul Rd</div>
-          <div class="store-mini-hrs">8 AM – 10 PM</div>
+          <div class="store-mini-name">SCIENCE CITY</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="G5, OBELISK, Science City Rd, Sola, Ahmedabad, Gujarat 380060">G5, OBELISK, Science City Rd, Sola, Ahmedabad, Gujarat 380060</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(4)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(4)">
           <div class="store-mini-num">05</div>
-          <div class="store-mini-name">Science City</div>
-          <div class="store-mini-addr">Obelisk, Science City Road</div>
-          <div class="store-mini-hrs">9 AM – 10:30 PM</div>
+          <div class="store-mini-name">VASTRAPUR</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Shop no 8, Vastrapur, Ahmedabad, Gujarat 380052">Shop no 8, Vastrapur, Ahmedabad, Gujarat 380052</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(5)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(5)">
           <div class="store-mini-num">06</div>
-          <div class="store-mini-name">Vastrapur</div>
-          <div class="store-mini-addr">Near Himalaya Mall</div>
-          <div class="store-mini-hrs">9 AM – 10:30 PM</div>
+          <div class="store-mini-name">TAPOVAN</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Near Tapovan circle, on Service Rd, next to True Value Maruti, Chandkheda, Ahmedabad, Gujarat 382421">Near Tapovan circle, on Service Rd, next to True Value Maruti, Chandkheda, Ahmedabad, Gujarat 382421</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(6)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(6)">
           <div class="store-mini-num">07</div>
-          <div class="store-mini-name">Thaltej</div>
-          <div class="store-mini-addr">Sindhu Bhavan Marg</div>
+          <div class="store-mini-name">NIKOL</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Kasturi Pride, Sardar Patel Ring Rd, opp. Torrent Power Stataion, behind Kesar Harmony, Nikol, Ahmedabad, Gujarat 380049">Kasturi Pride, Sardar Patel Ring Rd, opp. Torrent Power Stataion, behind Kesar Harmony, Nikol, Ahmedabad, Gujarat 380049</div>
           <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(7)">
+        <div class="store-mini-card " data-city="ahmedabad" onclick="switchStore(7)">
           <div class="store-mini-num">08</div>
-          <div class="store-mini-name">Nikol</div>
-          <div class="store-mini-addr">Kasturi Pride, SP Ring Rd</div>
+          <div class="store-mini-name">CG Road</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="CG Road, Ahmedabad, Gujarat">CG Road, Ahmedabad, Gujarat</div>
           <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card" data-city="ahmedabad" onclick="switchStore(8)">
+        <div class="store-mini-card filtered-out" data-city="gandhinagar" onclick="switchStore(8)">
           <div class="store-mini-num">09</div>
-          <div class="store-mini-name">Motera</div>
-          <div class="store-mini-addr">Maple 99, near Tapovan Circle</div>
-          <div class="store-mini-hrs">8 AM – 11 PM</div>
-        </div>
-
-        <!-- Indore Stores -->
-        <div class="store-mini-card filtered-out" data-city="indore" onclick="switchStore(9)">
-          <div class="store-mini-num">10</div>
-          <div class="store-mini-name">South Tukoganj</div>
-          <div class="store-mini-addr">Tulsi Tower, AB Road</div>
+          <div class="store-mini-name">GANDHINAGAR</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Gandhinagar, Gujarat">Gandhinagar, Gujarat</div>
           <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
-        <div class="store-mini-card filtered-out" data-city="indore" onclick="switchStore(10)">
+        <div class="store-mini-card filtered-out" data-city="vadodara" onclick="switchStore(9)">
+          <div class="store-mini-num">10</div>
+          <div class="store-mini-name">VADODARA CITY</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Vadodara, Gujarat">Vadodara, Gujarat</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
+        </div>
+        <div class="store-mini-card filtered-out" data-city="anand" onclick="switchStore(10)">
           <div class="store-mini-num">11</div>
-          <div class="store-mini-name">New Palasia</div>
-          <div class="store-mini-addr">DM Tower, Janjeerwala Sq</div>
+          <div class="store-mini-name">ANAND CITY</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="opp. Anand - Sojitra Road, Sarvodaya Society, Vithal Udyognagar, GIDC, Anand, Gujarat 388120">opp. Anand - Sojitra Road, Sarvodaya Society, Vithal Udyognagar, GIDC, Anand, Gujarat 388120</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
+        </div>
+        <div class="store-mini-card filtered-out" data-city="rajkot" onclick="switchStore(11)">
+          <div class="store-mini-num">12</div>
+          <div class="store-mini-name">RAJKOT CITY</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="Rajkot, Gujarat">Rajkot, Gujarat</div>
+          <div class="store-mini-hrs">9 AM – 11 PM</div>
+        </div>
+        <div class="store-mini-card filtered-out" data-city="surat" onclick="switchStore(12)">
+          <div class="store-mini-num">13</div>
+          <div class="store-mini-name">Vesu, Surat</div>
+          <div class="store-mini-addr" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" title="G 4, DMD Pacific, Vesu Canal Rd, opp. L P Savani School, Bharthana, Surat, Gujarat 395007">G 4, DMD Pacific, Vesu Canal Rd, opp. L P Savani School, Bharthana, Surat, Gujarat 395007</div>
           <div class="store-mini-hrs">9 AM – 11 PM</div>
         </div>
       </div>
     </div>
+
+  </section>
 
   </section>
 
@@ -3682,7 +3789,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Our Café</a></li>
           <li><a href="#menu">Our Signature Menu</a></li>
-          <li><a href="#locator">Our 11 Locations</a></li>
+          <li><a href="#locator">Our 13 Locations</a></li>
         </ul>
       </div>
 
@@ -3691,12 +3798,15 @@
         <ul style="color: var(--text-light); opacity: 0.8; font-size: 0.9rem;">
           <li style="margin-bottom: 10px;">📞 <a href="tel:+918320612851" style="color: var(--accent); font-weight: 700; text-decoration: none;">+91 83206 12851</a></li>
           <li style="margin-bottom: 16px;">✉️ <a href="mailto:thecrushcafe07@gmail.com" style="color: var(--accent); text-decoration: none;">thecrushcafe07@gmail.com</a></li>
-          <li style="font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">Ahmedabad Outlets (9)</li>
-          <li style="margin-bottom: 4px; opacity: 0.7; font-size: 0.82rem;">📍 Bopal • Ambli • SG Highway</li>
-          <li style="margin-bottom: 4px; opacity: 0.7; font-size: 0.82rem;">📍 Gurukul • Science City • Vastrapur</li>
-          <li style="margin-bottom: 12px; opacity: 0.7; font-size: 0.82rem;">📍 Thaltej • Nikol • Motera</li>
-          <li style="font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">Indore Outlets (2)</li>
-          <li style="opacity: 0.7; font-size: 0.82rem;">📍 South Tukoganj • New Palasia</li>
+
+          <li style="font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">Ahmedabad Outlets (8)</li>
+          <li style="margin-bottom: 4px; opacity: 0.7; font-size: 0.82rem;">📍 SBR • Rajpath • Wide Angle</li>
+          <li style="margin-bottom: 4px; opacity: 0.7; font-size: 0.82rem;">📍 Science City • Vastrapur • Tapovan</li>
+          <li style="margin-bottom: 12px; opacity: 0.7; font-size: 0.82rem;">📍 Nikol • CG Road</li>
+
+          <li style="font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 6px; text-transform: uppercase;">Other Cities</li>
+          <li style="opacity: 0.7; font-size: 0.82rem;">📍 Gandhinagar • Anand • Rajkot</li>
+          <li style="opacity: 0.7; font-size: 0.82rem; margin-top: 3px;">📍 Surat (Vesu) • Vadodara</li>
         </ul>
       </div>
     </div>
@@ -4079,6 +4189,15 @@
           drawer.classList.remove('open');
         });
       });
+
+      // Close drawer via the ✕ close button
+      const drawerCloseBtn = document.getElementById('drawer-close-btn');
+      if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', () => {
+          trigger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      }
 
       // Click Ripple Effect
       document.querySelectorAll('.btn-ripple').forEach(btn => {
