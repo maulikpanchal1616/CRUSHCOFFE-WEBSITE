@@ -4070,7 +4070,7 @@
       }
 
       // Scroll active tab into view (smooth horizontal scroll on mobile)
-      if (targetTab) {
+      if (shouldScroll && targetTab) {
         targetTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
 
