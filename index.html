@@ -3,16 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crush Coffee — 3D Antigravity Experience</title>
-  <meta name="description" content="Explore Crush Coffee, India's premier artisanal café experience with 11 gorgeous outlets across Ahmedabad and Indore. Enjoy master-crafted specialty brews, slow-drip single origin beans, premium lounge spaces, and ultra-fast workspace environments designed for creative minds. Visit us in-store or online for the ultimate daily coffee ritual.">
+  <title>Crush Coffee — Premium 3D Standalone Experience</title>
+  <meta name="description" content="Explore Crush Coffee, India's premier artisanal café experience with gorgeous outlets across Ahmedabad and Indore. Enjoy master-crafted specialty brews, slow-drip single origin beans, premium lounge spaces, and custom 3D interactive experiences designed for creative minds. Visit us in-store or online for the ultimate daily coffee ritual.">
+  <meta name="keywords" content="Crush Coffee, specialty coffee, artisanal café, Ahmedabad coffee, Indore coffee, 3D coffee experience, premium coffee lounge, best coffee shop India, daily coffee ritual">
+  <link rel="canonical" href="https://crushcoffee.vercel.app/">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
   
   <!-- SEO Heading and metadata -->
   <meta name="google-site-verification" content="goIXR_9m7Mn89GOgpRsFoBdOIccmYWWJw7R2FEAHkyk">
-  <meta property="og:title" content="Crush Coffee — 3D Antigravity Experience">
-  <meta property="og:description" content="Explore Crush Coffee, India's premier artisanal café experience with 11 gorgeous outlets across Ahmedabad and Indore. Enjoy master-crafted specialty brews, slow-drip single origin beans, premium lounge spaces, and ultra-fast workspace environments designed for creative minds. Visit us in-store or online for the ultimate daily coffee ritual.">
+  <meta property="og:title" content="Crush Coffee — Premium 3D Standalone Experience">
+  <meta property="og:description" content="Explore Crush Coffee, India's premier artisanal café experience with gorgeous outlets across Ahmedabad and Indore. Enjoy master-crafted specialty brews, slow-drip single origin beans, premium lounge spaces, and custom 3D interactive experiences designed for creative minds.">
+  <meta property="og:url" content="https://crushcoffee.vercel.app/">
+  <meta property="og:site_name" content="Crush Coffee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://crushcoffee.vercel.app/hero_coffee_cup.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crush Coffee — Premium 3D Standalone Experience">
+  <meta name="twitter:description" content="Explore Crush Coffee, India's premier artisanal café experience with gorgeous outlets across Ahmedabad and Indore. Enjoy master-crafted specialty brews, slow-drip single origin beans, premium lounge spaces, and custom 3D interactive experiences designed for creative minds.">
+  <meta name="twitter:image" content="https://crushcoffee.vercel.app/hero_coffee_cup.png">
   
   <!-- Preload & Preconnect Optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +30,54 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preload" href="logo.png" as="image">
   
+  <!-- Structured Data JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://crushcoffee.vercel.app/#website",
+        "url": "https://crushcoffee.vercel.app/",
+        "name": "Crush Coffee",
+        "description": "Premium 3D standalone coffee experience and artisanal café."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://crushcoffee.vercel.app/#organization",
+        "name": "Crush Coffee",
+        "url": "https://crushcoffee.vercel.app/",
+        "logo": "https://crushcoffee.vercel.app/logo.png",
+        "sameAs": []
+      },
+      {
+        "@type": "CoffeeShop",
+        "@id": "https://crushcoffee.vercel.app/#coffeeshop",
+        "name": "Crush Coffee",
+        "image": "https://crushcoffee.vercel.app/hero_coffee_cup.png",
+        "description": "Explore Crush Coffee, India's premier artisanal café experience with outlets across Ahmedabad and Indore.",
+        "priceRange": "$$",
+        "telephone": "+917912345678",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Naroda",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "postalCode": "382330",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "23.0806",
+          "longitude": "72.6457"
+        },
+        "url": "https://crushcoffee.vercel.app/",
+        "servesCuisine": "Coffee, Beverages, Desserts"
+      }
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   
   <style>
@@ -3770,7 +3828,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#home" class="footer-logo gold-gradient-text" style="display: flex; align-items: center; text-decoration: none;">
-          <img src="logo.png" alt="Crush Coffee Logo" class="logo-icon">
+          <img src="logo.png" alt="Crush Coffee Logo" class="logo-icon" loading="lazy">
           CRUSH COFFEE
         </a>
         <p class="footer-tagline">"Your everyday café for thoughtfully brewed coffee and relaxed moments. Step in for the coffee, stay for the vibe."</p>

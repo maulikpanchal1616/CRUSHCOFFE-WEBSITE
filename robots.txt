@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crushcoffee.vercel.app/sitemap.xml
