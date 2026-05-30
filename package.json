@@ -11,7 +11,7 @@
     "3d",
     "experience"
   ],
-  "author": "Antigravity",
+  "author": "Crush Coffee",
   "license": "ISC",
   "dependencies": {
     "puppeteer": "^24.43.1"
